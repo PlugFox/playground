@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "938038236717",
+    "project_id": "playplugfox",
+    "storage_bucket": "playplugfox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938038236717:android:cde9e17fb3d539198b8aa4",
+        "android_client_info": {
+          "package_name": "dev.plugfox.playground"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938038236717-hed78tuf3e417ljcbgeht4hti2f8rsf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWON6RODzGIGUDnYTlaR6M5cdy8mscDUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938038236717-hed78tuf3e417ljcbgeht4hti2f8rsf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

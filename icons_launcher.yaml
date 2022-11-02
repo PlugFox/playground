@@ -1,0 +1,21 @@
+# flutter pub run icons_launcher:create
+icons_launcher:
+  platforms:
+    ios:
+      enable: true
+      image_path: "assets/logo/icon_512.png"
+    android:
+      enable: true
+      image_path: "assets/logo/icon_512.png"
+    macos:
+      enable: true
+      image_path: "assets/logo/icon_512.png"
+    windows:
+      enable: false
+      image_path: "assets/logo/icon_512.png"
+    linux:
+      enable: true
+      image_path: "assets/logo/icon_512.png"
+    web:
+      enable: true
+      image_path: "assets/logo/icon_512.png"

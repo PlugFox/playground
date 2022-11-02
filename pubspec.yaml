@@ -1,0 +1,88 @@
+name: playground
+description: Flutter playground
+publish_to: 'none'
+version: 0.0.1+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+  flutter: ">=3.3.6"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Firebase
+  firebase: any
+  firebase_core: any
+  firebase_analytics: any
+  firebase_crashlytics: any
+  #firebase_performance: any
+  #firebase_auth: any
+  #firebase_messaging: any
+  #firebase_remote_config: any
+  #cloud_firestore: any
+  #flutterfire_ui: any
+
+  # Routing
+  go_router: ^5.1.1
+
+  # Fonts
+  google_fonts: ^3.0.1
+  font_awesome_flutter: ^10.2.1
+
+  # Models and annotation
+  meta: any
+  #equatable: any
+  #json_annotation: any
+  #freezed_annotation: any
+
+  # Database
+  shared_preferences: any
+
+  # Utility
+  l: any
+  intl: any
+  path: ^1.8.2
+  url_launcher: any
+  #theme_tailor_annotation: any
+  platform_info: any
+  flutter_batteries: ^0.0.6-dev
+  #flutter_blurhash: ^0.7.0
+  #file_selector: ^0.9.2+1
+  image_gallery_saver: ^1.7.1
+  #permission_handler: ^10.1.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  build_runner: any
+  build_web_compilers: any
+  dart_code_metrics: any
+  icons_launcher: ^2.0.5
+  flutter_native_splash: ^2.2.10+1
+  pubspec_generator: any
+  #theme_tailor: any
+  #json_serializable: any
+  #freezed: any
+  flutter_gen_runner: any
+
+flutter:
+  uses-material-design: true
+  assets: []
+
+flutter_intl:
+  enabled: true
+  class_name: GeneratedLocalization
+  main_locale: en
+  arb_dir: lib/src/common/localization
+  output_dir: lib/src/common/localization/generated
+  use_deferred_loading: false
+
+flutter_gen:
+  output: lib/src/common/constant/
+  line_length: 120

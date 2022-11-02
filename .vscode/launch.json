@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "development",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "env": {
+                "ENVIRONMENT": "develop"
+            },
+            "args": [
+                "--dart-define=ENVIRONMENT=development",
+            ]
+        },
+        {
+            "name": "staging",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "env": {
+                "ENVIRONMENT": "staging"
+            },
+            "args": [
+                "--dart-define=ENVIRONMENT=staging",
+            ]
+        }
+    ]
+}
