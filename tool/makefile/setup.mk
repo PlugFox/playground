@@ -7,6 +7,7 @@ setup:
 #	@fvm flutter pub global activate intl_utils
 	@dart pub global activate flutterfire_cli
 	@flutterfire configure -y \
+		--platforms=android,ios,macos,web,linux,windows \
 		-i dev.plugfox.playground \
 		-m dev.plugfox.playground \
 		-a dev.plugfox.playground \

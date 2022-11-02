@@ -29,6 +29,13 @@
             {
               "client_id": "938038236717-hed78tuf3e417ljcbgeht4hti2f8rsf7.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "938038236717-a4n6lr20d8ds9amaskm3p30reunnpkj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.plugfox.playground"
+              }
             }
           ]
         }
