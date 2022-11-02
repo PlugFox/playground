@@ -4,22 +4,24 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// {@template highlight_icons_screen}
-/// HighlightIconsScreen widget
+import '../../../common/util/screen_util.dart';
+
+/// {@template icons_screen}
+/// IconsScreen widget
 /// {@endtemplate}
-class HighlightIconsScreen extends StatelessWidget {
-  /// {@macro highlight_icons_screen}
-  const HighlightIconsScreen({super.key});
+class IconsScreen extends StatelessWidget {
+  /// {@macro icons_screen}
+  const IconsScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Highlight Icons')),
+        appBar: AppBar(title: const Text('Icons')),
         body: SafeArea(
           child: Center(
             child: GridView.extent(
               maxCrossAxisExtent: 200,
               childAspectRatio: 1,
-              padding: const EdgeInsets.all(16),
+              padding: ScreenUtil.centerPadding(context),
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
               children: const <Widget>[
@@ -34,12 +36,6 @@ class HighlightIconsScreen extends StatelessWidget {
                   icon: FlutterLogo(
                     size: 64,
                   ),
-                  /* colors: <Color>[
-                    Colors.lightBlue,
-                    Colors.blue,
-                    Colors.deepOrange,
-                    Colors.red,
-                  ], */
                 ),
               ],
             ),
@@ -128,8 +124,7 @@ class GradientIcon extends StatefulWidget {
   /// {@macro gradient_icon}
   const GradientIcon({
     required this.icon,
-    this.duration = const Duration(milliseconds: 1200),
-    this.colors,
+    this.duration = const Duration(milliseconds: 2400),
     super.key,
   });
 
@@ -138,8 +133,6 @@ class GradientIcon extends StatefulWidget {
 
   /// The duration of the animation.
   final Duration duration;
-
-  final List<Color>? colors;
 
   @override
   State<GradientIcon> createState() => _GradientIconState();
@@ -160,14 +153,8 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
     )..repeat();
     _reversed = TweenSequence<double>(
       <TweenSequenceItem<double>>[
-        TweenSequenceItem<double>(
-          tween: Tween<double>(begin: 0, end: 1),
-          weight: 1,
-        ),
-        TweenSequenceItem<double>(
-          tween: Tween<double>(begin: 1, end: 0),
-          weight: 1,
-        ),
+        TweenSequenceItem<double>(tween: Tween<double>(begin: 0, end: 1), weight: 1),
+        TweenSequenceItem<double>(tween: Tween<double>(begin: 1, end: 0), weight: 1),
       ],
     ).animate(_controller);
     _gradient = CurvedAnimation(parent: _controller, curve: Curves.linear);
@@ -184,6 +171,8 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
   void dispose() {
     _controller.dispose();
     super.dispose();
+    // Color rainbow list
+    Iterable.generate(7, (int i) => i / 7).map((double h) => HSVColor.fromAHSV(1, h * 7, 1, 1).toColor()).toList();
   }
   /* #endregion */
 
@@ -194,7 +183,7 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
             alignment: Alignment.center,
             children: <Widget>[
               FadeTransition(
-                opacity: Tween<double>(begin: .15, end: .5).animate(
+                opacity: Tween<double>(begin: .15, end: .4).animate(
                   ReverseAnimation(_reversed).drive(CurveTween(curve: Curves.easeInOut)),
                 ),
                 child: ScaleTransition(
@@ -212,16 +201,8 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
                           end: Alignment.bottomRight,
                           tileMode: TileMode.decal,
                           transform: GradientRotation(_gradient.value * 2 * pi),
-                          colors: widget.colors ??
-                              <Color>[
-                                Colors.red,
-                                Colors.orange,
-                                Colors.yellow,
-                                Colors.green,
-                                Colors.blue,
-                                Colors.indigo,
-                                Colors.purple,
-                              ],
+                          stops: const <double>[.5, .5],
+                          colors: const <Color>[Colors.deepOrange, Colors.lightBlue],
                         ).createShader(rect),
                         child: widget.icon,
                       ),

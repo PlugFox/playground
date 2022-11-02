@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
@@ -54,6 +55,17 @@ abstract class ScreenUtil {
       return ScreenSize.extraLarge;
     }
   }
+
+  static EdgeInsets centerPadding(
+    BuildContext context, {
+    double maxWidth = 920,
+    double horizontal = 16,
+    double vertical = 24,
+  }) =>
+      EdgeInsets.symmetric(
+        horizontal: math.max<double>((MediaQuery.of(context).size.width - maxWidth) / 2, horizontal),
+        vertical: vertical,
+      );
 
   /// portrait
   /// landscape

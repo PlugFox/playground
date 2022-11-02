@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../feature/highlight_icons/widget/highlight_icons_screen.dart';
+import '../../feature/icons/widget/icons_screen.dart';
 import '../../feature/menu/widget/menu_screen.dart';
 
 final List<GoRoute> $routes = <GoRoute>[
@@ -20,9 +20,9 @@ final List<GoRoute> $routes = <GoRoute>[
     builder: (context, state) => const MenuScreen(),
     routes: <RouteBase>[
       GoRoute(
-        name: 'HighlightIcons',
+        name: 'Icons',
         path: 'hl-icons',
-        builder: (context, state) => const HighlightIconsScreen(),
+        builder: (context, state) => const IconsScreen(),
       ),
     ],
   ),
@@ -36,6 +36,6 @@ extension GoRoutesExtension on BuildContext {
   /// Navigate to the Home route.
   void goHome() => _router.goNamed('Home');
 
-  /// Navigate to the HighlightIcons route.
-  void goHighlightIcons() => _router.goNamed('HighlightIcons');
+  /// Navigate to the Icons route.
+  void goIcons() => _router.goNamed('Icons');
 }

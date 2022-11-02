@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common/router/routes.dart';
+import '../../../common/util/screen_util.dart';
 
 /// {@template menu_screen}
 /// MenuScreen widget
@@ -18,21 +19,10 @@ class MenuScreen extends StatelessWidget {
               title: Text('Menu'),
               floating: true,
               snap: true,
+              pinned: true,
             ),
-            /* SliverFixedExtentList(
-              itemExtent: 50,
-              delegate: SliverChildListDelegate.fixed(
-                <Widget>[
-                  ListTile(
-                    dense: true,
-                    title: const Text('Highlight Icons'),
-                    onTap: () => context.goHighlightIcons(),
-                  ),
-                ],
-              ),
-            ), */
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              padding: ScreenUtil.centerPadding(context),
               sliver: DefaultTextStyle(
                 style: GoogleFonts.robotoMono(
                   fontSize: 24,
@@ -44,8 +34,8 @@ class MenuScreen extends StatelessWidget {
                   mainAxisSpacing: 16,
                   children: <Widget>[
                     MenuCard(
-                      title: 'Highlight Icons',
-                      onTap: () => context.goHighlightIcons(),
+                      title: 'Icons',
+                      onTap: () => context.goIcons(),
                     ),
                   ],
                 ),
@@ -63,11 +53,12 @@ class MenuCard extends GridTile {
   /// {@macro menu_card}
   MenuCard({
     required String title,
-    void Function()? onTap,
+    required VoidCallback onTap,
     super.key,
   }) : super(
           child: Card(
             elevation: 4,
+            color: Colors.blueGrey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -78,27 +69,28 @@ class MenuCard extends GridTile {
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: Center(
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: _style,
+                  child: Builder(
+                    builder: (context) => Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.robotoMono(
+                        height: 1,
+                        fontSize: 24,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontWeight: FontWeight.bold,
+                        /* shadows: <Shadow>[
+                          const Shadow(
+                            offset: Offset(2, 4),
+                            color: Colors.black26,
+                            blurRadius: 6,
+                          ),
+                        ], */
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
           ),
         );
-
-  static final TextStyle _style = GoogleFonts.robotoMono(
-    height: 1,
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-    shadows: <Shadow>[
-      const Shadow(
-        color: Colors.black26,
-        offset: Offset(6, 4),
-        blurRadius: 4,
-      ),
-    ],
-  );
 }
