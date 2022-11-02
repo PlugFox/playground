@@ -77,6 +77,7 @@ linter:
     avoid_types_on_closure_parameters: false
     always_use_package_imports: false
     prefer_mixin: false
+    avoid_multiple_declarations_per_line: false
 
     # Enabled
     prefer_relative_imports: true
@@ -227,7 +228,6 @@ linter:
     hash_and_equals: true
     avoid_equals_and_hash_code_on_mutable_classes: true
     avoid_dynamic_calls: true
-    avoid_multiple_declarations_per_line: true
     avoid_type_to_string: true
     deprecated_consistency: true
     eol_at_end_of_file: true

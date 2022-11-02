@@ -50,6 +50,26 @@ class GeneratedLocalization {
     return Localizations.of<GeneratedLocalization>(
         context, GeneratedLocalization);
   }
+
+  /// `en`
+  String get language_code {
+    return Intl.message(
+      'en',
+      name: 'language_code',
+      desc: 'Language code',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get language {
+    return Intl.message(
+      'English',
+      name: 'language',
+      desc: 'The current Language',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate
