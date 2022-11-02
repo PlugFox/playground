@@ -17,6 +17,7 @@ class MenuScreen extends StatelessWidget {
           slivers: <Widget>[
             const SliverAppBar(
               title: Text('Menu'),
+              centerTitle: true,
               floating: true,
               snap: true,
               pinned: true,
@@ -53,24 +54,25 @@ class MenuCard extends GridTile {
   /// {@macro menu_card}
   MenuCard({
     required String title,
-    required VoidCallback onTap,
+    /* String? description, */
+    VoidCallback? onTap,
     super.key,
   }) : super(
-          child: Card(
-            elevation: 4,
-            color: Colors.blueGrey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            margin: EdgeInsets.zero,
-            child: InkWell(
-              onTap: onTap,
-              borderRadius: BorderRadius.circular(16),
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Center(
-                  child: Builder(
-                    builder: (context) => Text(
+          child: Builder(
+            builder: (context) => Card(
+              color: Theme.of(context).primaryColor,
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              margin: EdgeInsets.zero,
+              child: InkWell(
+                onTap: onTap,
+                borderRadius: BorderRadius.circular(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Center(
+                    child: Text(
                       title,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.robotoMono(
@@ -78,13 +80,18 @@ class MenuCard extends GridTile {
                         fontSize: 24,
                         color: Theme.of(context).colorScheme.onPrimary,
                         fontWeight: FontWeight.bold,
-                        /* shadows: <Shadow>[
+                        shadows: <Shadow>[
                           const Shadow(
-                            offset: Offset(2, 4),
+                            offset: Offset(4, 2),
                             color: Colors.black26,
-                            blurRadius: 6,
+                            blurRadius: 8,
                           ),
-                        ], */
+                          const Shadow(
+                            offset: Offset(4, 2),
+                            color: Colors.black26,
+                            blurRadius: 2,
+                          ),
+                        ],
                       ),
                     ),
                   ),

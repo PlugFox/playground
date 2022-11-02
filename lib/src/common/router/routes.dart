@@ -21,7 +21,7 @@ final List<GoRoute> $routes = <GoRoute>[
     routes: <RouteBase>[
       GoRoute(
         name: 'Icons',
-        path: 'hl-icons',
+        path: 'icons',
         builder: (context, state) => const IconsScreen(),
       ),
     ],

@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -26,6 +28,7 @@ class _AppState extends State<App> {
         restorationScopeId: 'app',
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
+        theme: ui.window.platformBrightness == ui.Brightness.light ? ThemeData.light() : ThemeData.dark(),
         localizationsDelegates: const <LocalizationsDelegate<Object?>>[
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
