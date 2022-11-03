@@ -26,6 +26,7 @@ class IconsScreen extends StatelessWidget {
               crossAxisSpacing: 16,
               children: const <Widget>[
                 HeartbeatIcon(
+                  duration: Duration(milliseconds: 650),
                   icon: Icon(
                     FontAwesomeIcons.heartPulse,
                     color: Colors.red,
@@ -33,6 +34,7 @@ class IconsScreen extends StatelessWidget {
                   ),
                 ),
                 GradientIcon(
+                  duration: Duration(milliseconds: 2400),
                   icon: FlutterLogo(
                     size: 64,
                   ),

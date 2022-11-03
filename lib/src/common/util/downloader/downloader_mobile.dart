@@ -10,11 +10,13 @@ import 'dart:typed_data';
 import 'package:image_gallery_saver/image_gallery_saver.dart' as igs;
 
 FutureOr<void> $downloadBytes(List<int> bytes, String filename) async {
-  await igs.ImageGallerySaver.saveImage(
+  final Object? result = await igs.ImageGallerySaver.saveImage(
     Uint8List.fromList(bytes),
-    quality: 100,
     name: filename,
   );
+  if (result is Map<String, Object?> && result['isSuccess'] == false) {
+    throw Exception(result['errorMsg'] ?? 'Error saving image');
+  }
 
   /* final statuses = await <ph.Permission>[
     ph.Permission.storage,

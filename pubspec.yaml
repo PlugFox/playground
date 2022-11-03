@@ -45,6 +45,7 @@ dependencies:
   l: any
   intl: any
   path: ^1.8.2
+  image: any
   url_launcher: any
   #theme_tailor_annotation: any
   platform_info: any
