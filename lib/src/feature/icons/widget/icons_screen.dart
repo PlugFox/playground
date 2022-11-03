@@ -25,22 +25,31 @@ class IconsScreen extends StatelessWidget {
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
               children: const <Widget>[
-                HeartbeatIcon(
-                  duration: Duration(milliseconds: 650),
-                  icon: Icon(
-                    FontAwesomeIcons.heartPulse,
-                    color: Colors.red,
-                    size: 64,
+                Tooltip(
+                  message: 'HeartbeatIcon',
+                  child: HeartbeatIcon(
+                    duration: Duration(milliseconds: 650),
+                    icon: Icon(
+                      FontAwesomeIcons.heartPulse,
+                      color: Colors.red,
+                      size: 64,
+                    ),
                   ),
                 ),
-                GradientIcon(
-                  duration: Duration(milliseconds: 2400),
-                  icon: FlutterLogo(
-                    size: 64,
+                Tooltip(
+                  message: 'GradientIcon',
+                  child: GradientIcon(
+                    duration: Duration(milliseconds: 2400),
+                    icon: FlutterLogo(
+                      size: 64,
+                    ),
                   ),
                 ),
-                RadialProgressIndicator(
-                  size: 64,
+                Tooltip(
+                  message: 'RadialProgressIndicator',
+                  child: RadialProgressIndicator(
+                    size: 64,
+                  ),
                 ),
               ],
             ),
