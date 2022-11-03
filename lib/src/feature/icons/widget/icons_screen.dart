@@ -1,5 +1,5 @@
-import 'dart:math';
-import 'dart:ui';
+import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -39,12 +39,17 @@ class IconsScreen extends StatelessWidget {
                     size: 64,
                   ),
                 ),
+                RadialProgressIndicator(
+                  size: 64,
+                ),
               ],
             ),
           ),
         ),
       );
 }
+
+// --- HeartbeatIcon --- //
 
 /// {@template heartbeat_icon}
 /// HeartbeatIcon widget
@@ -119,6 +124,8 @@ class _HeartbeatIconState extends State<HeartbeatIcon> with SingleTickerProvider
       );
 }
 
+// --- GradientIcon --- //
+
 /// {@template gradient_icon}
 /// GradientIcon widget
 /// {@endtemplate}
@@ -173,8 +180,6 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
   void dispose() {
     _controller.dispose();
     super.dispose();
-    // Color rainbow list
-    Iterable.generate(7, (int i) => i / 7).map((double h) => HSVColor.fromAHSV(1, h * 7, 1, 1).toColor()).toList();
   }
   /* #endregion */
 
@@ -193,7 +198,7 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
                     CurvedAnimation(parent: _reversed, curve: Curves.easeInOut),
                   ),
                   child: ImageFiltered(
-                    imageFilter: ImageFilter.blur(sigmaX: 2, sigmaY: 2, tileMode: TileMode.decal),
+                    imageFilter: ui.ImageFilter.blur(sigmaX: 2, sigmaY: 2, tileMode: TileMode.decal),
                     child: AnimatedBuilder(
                       animation: _gradient,
                       builder: (context, child) => ShaderMask(
@@ -202,7 +207,7 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           tileMode: TileMode.decal,
-                          transform: GradientRotation(_gradient.value * 2 * pi),
+                          transform: GradientRotation(_gradient.value * 2 * math.pi),
                           stops: const <double>[.5, .5],
                           colors: const <Color>[Colors.deepOrange, Colors.lightBlue],
                         ).createShader(rect),
@@ -217,4 +222,105 @@ class _GradientIconState extends State<GradientIcon> with SingleTickerProviderSt
           ),
         ),
       );
+}
+
+// --- RadialProgressIndicator --- //
+
+/// {@template radial_progress_indicator}
+/// RadialProgressIndicator widget
+/// {@endtemplate}
+class RadialProgressIndicator extends StatefulWidget {
+  /// {@macro radial_progress_indicator}
+  const RadialProgressIndicator({
+    this.size = 64,
+    this.child,
+    Key? key,
+  }) : super(key: key);
+
+  /// The size of the progress indicator
+  final double size;
+
+  /// The child widget
+  final Widget? child;
+
+  @override
+  State<RadialProgressIndicator> createState() => _RadialProgressIndicatorState();
+}
+
+class _RadialProgressIndicatorState extends State<RadialProgressIndicator> with SingleTickerProviderStateMixin {
+  late final AnimationController _sweepController;
+  late final Animation<double> _curvedAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _sweepController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    )..repeat();
+    _curvedAnimation = CurvedAnimation(
+      parent: _sweepController,
+      curve: Curves.ease,
+    );
+  }
+
+  @override
+  void dispose() {
+    _sweepController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Center(
+        child: SizedBox.square(
+          dimension: widget.size,
+          child: RepaintBoundary(
+            child: CustomPaint(
+              painter: _RadialProgressIndicatorPainter(
+                animation: _curvedAnimation,
+                color: Theme.of(context).indicatorColor,
+              ),
+              child: Center(
+                child: widget.child,
+              ),
+            ),
+          ),
+        ),
+      );
+}
+
+class _RadialProgressIndicatorPainter extends CustomPainter {
+  _RadialProgressIndicatorPainter({
+    required Animation<double> animation,
+    Color color = Colors.blue,
+  })  : _animation = animation,
+        _arcPaint = Paint()
+          ..strokeCap = StrokeCap.round
+          ..style = PaintingStyle.stroke
+          ..color = color,
+        super(repaint: animation);
+
+  final Animation<double> _animation;
+  final Paint _arcPaint;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    _arcPaint.strokeWidth = size.shortestSide / 8;
+    final progress = _animation.value;
+    final rect = Rect.fromCircle(
+      center: size.center(Offset.zero),
+      radius: size.shortestSide / 2 - _arcPaint.strokeWidth / 2,
+    );
+    final rotate = math.pow(progress, 2) * math.pi * 2;
+    final sweep = math.sin(progress * math.pi) * 3 + math.pi * .25;
+
+    canvas.drawArc(rect, rotate, sweep, false, _arcPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant _RadialProgressIndicatorPainter oldDelegate) =>
+      _animation.value != oldDelegate._animation.value;
+
+  @override
+  bool shouldRebuildSemantics(covariant _RadialProgressIndicatorPainter oldDelegate) => false;
 }
