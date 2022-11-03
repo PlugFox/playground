@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../common/util/screen_util.dart';
-import '../../../common/widget/screenshot.dart';
 
 /// {@template icons_screen}
 /// IconsScreen widget
@@ -27,6 +26,7 @@ class IconsScreen extends StatelessWidget {
               crossAxisSpacing: 16,
               children: const <Widget>[
                 HeartbeatIcon(
+                  duration: Duration(milliseconds: 650),
                   icon: Icon(
                     FontAwesomeIcons.heartPulse,
                     color: Colors.red,
@@ -34,11 +34,12 @@ class IconsScreen extends StatelessWidget {
                   ),
                 ),
                 GradientIcon(
+                  duration: Duration(milliseconds: 2400),
                   icon: FlutterLogo(
                     size: 64,
                   ),
                 ),
-              ].map<Widget>(ScreenshotScope.gif).toList(growable: false),
+              ],
             ),
           ),
         ),

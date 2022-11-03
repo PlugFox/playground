@@ -12,7 +12,6 @@ import 'package:image_gallery_saver/image_gallery_saver.dart' as igs;
 FutureOr<void> $downloadBytes(List<int> bytes, String filename) async {
   final Object? result = await igs.ImageGallerySaver.saveImage(
     Uint8List.fromList(bytes),
-    quality: 100,
     name: filename,
   );
   if (result is Map<String, Object?> && result['isSuccess'] == false) {
