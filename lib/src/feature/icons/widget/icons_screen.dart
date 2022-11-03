@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../common/util/screen_util.dart';
+import '../../../common/widget/screenshot.dart';
 
 /// {@template icons_screen}
 /// IconsScreen widget
@@ -37,7 +38,7 @@ class IconsScreen extends StatelessWidget {
                     size: 64,
                   ),
                 ),
-              ],
+              ].map<Widget>(ScreenshotScope.gif).toList(growable: false),
             ),
           ),
         ),
