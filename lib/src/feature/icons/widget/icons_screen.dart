@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../common/util/screen_util.dart';
 import 'gradient_icon.dart';
 import 'heartbeat_icon.dart';
+import 'present_icon.dart';
 import 'radial_progress_indicator.dart';
 
 /// {@template icons_screen}
@@ -48,6 +49,12 @@ class IconsScreen extends StatelessWidget {
                 Tooltip(
                   message: 'RadialProgressIndicator',
                   child: RadialProgressIndicator(
+                    size: 64,
+                  ),
+                ),
+                Tooltip(
+                  message: 'PresentIcon',
+                  child: PresentIcon(
                     size: 64,
                   ),
                 ),
