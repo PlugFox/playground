@@ -8,11 +8,7 @@ final List<GoRoute> $routes = <GoRoute>[
   GoRoute(
     name: 'Home',
     path: '/',
-    redirect: (context, state) => state.namedLocation(
-      'Menu',
-      params: state.params,
-      queryParams: state.queryParams,
-    ),
+    redirect: (context, state) => Uri(path: '/menu', queryParameters: state.queryParams).toString(),
   ),
   GoRoute(
     name: 'Menu',
