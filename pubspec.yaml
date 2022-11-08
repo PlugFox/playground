@@ -63,7 +63,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: any
   build_web_compilers: any
-  dart_code_metrics: any
+  dart_code_metrics: ^5.0.1
   icons_launcher: ^2.0.5
   flutter_native_splash: ^2.2.14
   pubspec_generator: any
