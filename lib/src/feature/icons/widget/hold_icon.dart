@@ -160,19 +160,18 @@ class _CircularSawPainter extends CustomPainter {
 
     final stripesPath = Path()..fillType = PathFillType.evenOdd;
     const stripesCount = 6;
-    final stripeWidth = size.width;
     final stripeHeight = size.height / stripesCount / 2;
 
     final stripesPaint = Paint()
       ..color = Colors.orange
-      ..strokeWidth = stripeHeight
+      ..strokeWidth = stripeHeight / 1.8
       ..style = PaintingStyle.stroke;
 
-    for (var i = 0; i < stripesCount; i++) {
-      final dy = stripeHeight * i * 2 + offset;
+    for (var i = 0; i < stripesCount * 1.8; i++) {
+      final d = stripeHeight * i * 2;
       stripesPath
-        ..moveTo(0, dy)
-        ..lineTo(stripeWidth, dy);
+        ..moveTo(0, d)
+        ..lineTo(d, 0);
     }
     canvas
       ..drawPath(stripesPath, stripesPaint)
