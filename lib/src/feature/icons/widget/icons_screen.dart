@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../common/util/screen_util.dart';
 import 'gradient_icon.dart';
 import 'heartbeat_icon.dart';
+import 'hold_icon.dart';
 import 'present_icon.dart';
 import 'radial_progress_indicator.dart';
 
@@ -28,6 +29,7 @@ class IconsScreen extends StatelessWidget {
               children: const <Widget>[
                 Tooltip(
                   message: 'HeartbeatIcon',
+                  triggerMode: TooltipTriggerMode.manual,
                   child: HeartbeatIcon(
                     duration: Duration(milliseconds: 650),
                     icon: Icon(
@@ -39,6 +41,7 @@ class IconsScreen extends StatelessWidget {
                 ),
                 Tooltip(
                   message: 'GradientIcon',
+                  triggerMode: TooltipTriggerMode.manual,
                   child: GradientIcon(
                     duration: Duration(milliseconds: 2400),
                     icon: FlutterLogo(
@@ -48,13 +51,22 @@ class IconsScreen extends StatelessWidget {
                 ),
                 Tooltip(
                   message: 'RadialProgressIndicator',
+                  triggerMode: TooltipTriggerMode.manual,
                   child: RadialProgressIndicator(
                     size: 64,
                   ),
                 ),
                 Tooltip(
                   message: 'PresentIcon',
+                  triggerMode: TooltipTriggerMode.manual,
                   child: PresentIcon(
+                    size: 64,
+                  ),
+                ),
+                Tooltip(
+                  message: 'HoldIcon',
+                  triggerMode: TooltipTriggerMode.manual,
+                  child: HoldIcon(
                     size: 64,
                   ),
                 ),
