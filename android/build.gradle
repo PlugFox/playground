@@ -1,4 +1,6 @@
 buildscript {
+    // https://docs.flutter.dev/release/breaking-changes/kotlin-version
+    // https://kotlinlang.org/docs/gradle.html#plugin-and-versions
     ext.kotlin_version = '1.6.10'
     repositories {
         google()
@@ -6,6 +8,9 @@ buildscript {
     }
 
     dependencies {
+        // Gradle plugin versions:
+        // https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google
+        // Linked with gradle-wrapper.properties https://developer.android.com/studio/releases/gradle-plugin#updating-gradle
         classpath 'com.android.tools.build:gradle:7.1.2'
         // START: FlutterFire Configuration
         classpath 'com.google.gms:google-services:4.3.10'

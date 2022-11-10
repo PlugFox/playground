@@ -4,8 +4,8 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
-  flutter: ">=3.3.6"
+  sdk: ">=2.18.4 <3.0.0"
+  flutter: ">=3.3.8"
 
 dependencies:
   flutter:
@@ -52,7 +52,7 @@ dependencies:
   flutter_batteries: ^0.0.6-dev
   #flutter_blurhash: ^0.7.0
   #file_selector: ^0.9.2+1
-  image_gallery_saver: ^1.7.1
+  #image_gallery_saver: ^1.7.1
   #permission_handler: ^10.1.0
 
 

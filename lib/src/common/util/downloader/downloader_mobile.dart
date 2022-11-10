@@ -1,22 +1,22 @@
 import 'dart:async';
 import 'dart:io' as io;
-import 'dart:typed_data';
 
 //import 'package:permission_handler/permission_handler.dart' as ph;
 //import 'package:gallery_saver/gallery_saver.dart' as gs;
 //import 'package:collection/collection.dart';
 //import 'package:file_selector/file_selector.dart' as fs;
 //import 'package:path_provider/path_provider.dart' as pp;
-import 'package:image_gallery_saver/image_gallery_saver.dart' as igs;
+//import 'package:image_gallery_saver/image_gallery_saver.dart' as igs;
 
 FutureOr<void> $downloadBytes(List<int> bytes, String filename) async {
-  final Object? result = await igs.ImageGallerySaver.saveImage(
-    Uint8List.fromList(bytes),
-    name: filename,
-  );
-  if (result is Map<String, Object?> && result['isSuccess'] == false) {
-    throw Exception(result['errorMsg'] ?? 'Error saving image');
-  }
+  //final Object? result = await igs.ImageGallerySaver.saveImage(
+  //  Uint8List.fromList(bytes),
+  //  name: filename,
+  //);
+  //if (result is Map<String, Object?> && result['isSuccess'] == false) {
+  //  throw Exception(result['errorMsg'] ?? 'Error saving image');
+  //}
+  throw UnimplementedError();
 
   /* final statuses = await <ph.Permission>[
     ph.Permission.storage,

@@ -58,7 +58,7 @@ const List<String> pre = <String>[];
 const List<String> build = <String>[r'1'];
 
 /// Build date in Unix Time (in seconds)
-const int timestamp = 1667428946;
+const int timestamp = 1668097165;
 
 /// Name [name]
 const String name = r'playground';
@@ -83,8 +83,8 @@ const String publishTo = r'none';
 
 /// Environment
 const Map<String, String> environment = <String, String>{
-  'sdk': '>=2.18.2 <3.0.0',
-  'flutter': '>=2.18.2 <3.0.0',
+  'sdk': '>=2.18.4 <3.0.0',
+  'flutter': '>=2.18.4 <3.0.0',
 };
 
 /// Dependencies
@@ -97,9 +97,9 @@ const Map<String, Object> dependencies = <String, Object>{
   },
   'firebase': r'any',
   'firebase_core': r'any',
-  'firebase_analytics': r'any',
-  'firebase_crashlytics': r'any',
-  'go_router': r'^5.1.1',
+  'firebase_analytics': r'^10.0.4',
+  'firebase_crashlytics': r'^3.0.4',
+  'go_router': r'^5.1.5',
   'google_fonts': r'^3.0.1',
   'font_awesome_flutter': r'^10.2.1',
   'meta': r'any',
@@ -107,6 +107,7 @@ const Map<String, Object> dependencies = <String, Object>{
   'l': r'any',
   'intl': r'any',
   'path': r'^1.8.2',
+  'image': r'any',
   'url_launcher': r'any',
   'platform_info': r'any',
   'flutter_batteries': r'^0.0.6-dev',
@@ -123,9 +124,9 @@ const Map<String, Object> devDependencies = <String, Object>{
   },
   'build_runner': r'any',
   'build_web_compilers': r'any',
-  'dart_code_metrics': r'any',
+  'dart_code_metrics': r'^5.0.1',
   'icons_launcher': r'^2.0.5',
-  'flutter_native_splash': r'^2.2.10+1',
+  'flutter_native_splash': r'^2.2.14',
   'pubspec_generator': r'any',
   'flutter_gen_runner': r'any',
 };
