@@ -16,7 +16,7 @@ dependencies:
   # Firebase
   firebase: any
   firebase_core: any
-  firebase_analytics: ^10.0.4
+  firebase_analytics: ^10.0.5
   firebase_crashlytics: ^3.0.4
   #firebase_performance: any
   #firebase_auth: any
