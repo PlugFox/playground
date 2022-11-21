@@ -26,7 +26,7 @@ dependencies:
   #flutterfire_ui: any
 
   # Routing
-  go_router: ^5.1.5
+  go_router: ^5.1.10
 
   # Fonts
   google_fonts: ^3.0.1
