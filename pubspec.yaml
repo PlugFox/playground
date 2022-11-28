@@ -65,7 +65,7 @@ dev_dependencies:
   build_web_compilers: any
   dart_code_metrics: ^5.0.1
   icons_launcher: ^2.0.6
-  flutter_native_splash: ^2.2.14
+  flutter_native_splash: ^2.2.16
   pubspec_generator: any
   #theme_tailor: any
   #json_serializable: any
